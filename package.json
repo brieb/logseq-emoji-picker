@@ -1,9 +1,9 @@
 {
-  "name": "logseq-emoji-picker",
+  "name": "logseq-emoji-picker-dev",
   "version": "0.0.2",
   "description": "A joyful emoji picker from Logseq slash command 🚀",
   "main": "dist/index.html",
-  "author": "walsvid",
+  "author": "brieb",
   "license": "MIT",
   "targets": {
     "main": false

@@ -82,7 +82,7 @@ async function main() {
     }, false)
 
     document.addEventListener('click', (e) => {
-      if (!(e.target as HTMLElement).closest('div[class*="EmojiPicker_picker"]')) {
+      if (!e.target.closest('div[class*="EmojiPicker_picker"]')) {
         logseq.hideMainUI({ restoreEditingCursor: true })
       }
     })

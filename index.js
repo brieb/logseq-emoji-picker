@@ -90,20 +90,23 @@ async function main() {
     return picker
   }
 
-  logseq.Editor.registerSlashCommand(
-    '😀 Emoji picker', async () => {
-      const { left, top, rect, } = await logseq.Editor.getEditingCursorPosition()
-      Object.assign(emojiPickerEl.style, {
-        top: top + rect.top + 'px',
-        left: left + rect.left + 'px',
-      })
-      logseq.showMainUI()
+  const pickEmoji = async () => {
+    const { left, top, rect, } = await logseq.Editor.getEditingCursorPosition()
+    Object.assign(emojiPickerEl.style, {
+      top: top + rect.top + 'px',
+      left: left + rect.left + 'px',
+    })
+    logseq.showMainUI()
 
-      setTimeout(() => {
-        makePicker().open()
-      }, 100)
-    },
-  )
+    setTimeout(() => {
+      makePicker().open()
+    }, 100)
+  }
+
+  logseq.Editor.registerSlashCommand('😀 Emoji picker', pickEmoji)
+  logseq.App.registerCommandShortcut({ binding: 'ctrl+;' }, (e) => {
+    pickEmoji();
+  })
 }
 
 // bootstrap
